@@ -8,6 +8,7 @@ class LoginService {
         const { email, password} = req.body;
         const userExiste = await User.findOne({email: email});
         const expiresIn = process.env.EXPIRESIN;
+        const secret = process.env.SECRET;
 
         if(!userExiste){
             return res.status(400).json({
@@ -31,7 +32,7 @@ class LoginService {
                 name: userExiste.name,
                 email
             },
-            token: jwt.sign({id: userExiste._id}, configAuth.secret, {expiresIn: expiresIn}),
+            token: jwt.sign({id: userExiste._id}, secret, {expiresIn: expiresIn}),
         })
     }
 }

@@ -9,8 +9,8 @@ test('GET /users', async () => {
 
 test("POST /users 200 OK", async () => {
     const user = {
-        name: "Bruno 6",
-        email: "bruno.feijo5@live.com",
+        name: "Bruno 100",
+        email: "bruno.feijo100@live.com",
         password: "123456",
         originalName: "Feijó",
         fileName: "não"
